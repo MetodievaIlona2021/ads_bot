@@ -1,0 +1,14 @@
+environs~=8.0.0
+asgiref
+sqlalchemy
+aiogram>=2.10.1
+aiohttp>=3.6.2
+aioredis==1.3.1
+python-dotenv
+Django>=3.0
+psycopg2-binary
+jsonfield
+gino
+qiwipy
+pyqrcode
+pypng
