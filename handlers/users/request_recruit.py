@@ -3,7 +3,7 @@ from aiogram.dispatcher import FSMContext
 
 from keyboards.inline.recruiting_keyboards import recruiting_keyboard, types_research_keyboard, \
     payment_types_keyboard, gender_types_keyboard, get_articles_keyboard, check_info_keyboard
-from loader import dp
+from loader import dp, bot
 from states.recruiting_states import RecruitingQuery
 from utils.db_api.models import RecruitQuery
 
@@ -269,6 +269,7 @@ async def check_info(message: types.Message, state: FSMContext):
            f'<i>Ваш ответ: {send_articles}</i>\n\n' \
            f'12.Из каких источников Вы узнали об Агентстве ADS:\n' \
            f'<i>Ваш ответ: {sources}</i>\n\n'
+
     await message.answer(text=text, parse_mode='html', reply_markup=check_info_keyboard)
     await RecruitingQuery.FinishRecruit.set()
 
@@ -277,9 +278,52 @@ async def check_info(message: types.Message, state: FSMContext):
 async def correct_info(call: types.CallbackQuery, state: FSMContext):
     await call.answer(cache_time=60)
     data = await state.get_data()
+    email = data.get('email')
+    research_type = data.get('research_type')
+    basic_requirement = data.get('basic_requirement')
+    count_respondents = data.get('count_respondents')
+    payments_type = data.get('payments_type')
+    respondent_data = data.get('respondent_data')
+    stock_respondents_info = data.get('stock_respondents_info')
+    company_info = data.get('company_info')
+    name = data.get('name')
+    gender = data.get('gender')
+    send_articles = data.get('send_articles')
+    sources = data.get('sources')
     recruit_query: RecruitQuery = data.get('recruit_query')
+
     await recruit_query.create()
 
+    text = f'Подтверждаете ли Вы введенную информацию:\n\n' \
+           f'1.Введите адрес электронной почты:\n' \
+           f'<i>Ваш ответ: {email}</i>\n\n' \
+           f'2.Выберете вид исследования:\n' \
+           f'<i>Ваш ответ: {research_type}</i>\n\n' \
+           f'3.Укажите основные требования к респондентам в свободной форме:\n' \
+           f'<i>Ваш ответ: {basic_requirement}</i>\n\n' \
+           f'4.Введите общее количество респондентов:\n' \
+           f'<i>Ваш ответ: {count_respondents}</i>\n\n' \
+           f'5.Подскажите, пожалуйста, как будет проходить организация выплаты вознаграждения ' \
+           f'респондентам по итогам исследования:\n' \
+           f'<i>Ваш ответ: {payments_type}</i>\n\n' \
+           f'6.Какие данные от респондента потребуются на исследовании:\n' \
+           f'<i>Ваш ответ: {respondent_data}</i>\n\n' \
+           f'7.Обычно мы не делаем двойной запас респондентов с целью оптимизации бюджета, ' \
+           f'если кто-то из респондентов не дошел мы приглашаем его на следующий день, ' \
+           f'насколько это критично для Вас:\n' \
+           f'<i>Ваш ответ: {stock_respondents_info}</i>\n\n' \
+           f'8.Укажите какую компанию Вы представляете, должность, телефон:\n' \
+           f'<i>Ваш ответ: {company_info}</i>\n\n' \
+           f'9.Укажите, пожалуйста, ваше имя:\n' \
+           f'<i>Ваш ответ: {name}</i>\n\n' \
+           f'10.Укажите пол:\n' \
+           f'<i>Ваш ответ: {gender}</i>\n\n' \
+           f'11.Отправляя нам данную форму, вы соглашаетесь на получение статей от компании ADS:\n' \
+           f'<i>Ваш ответ: {send_articles}</i>\n\n' \
+           f'12.Из каких источников Вы узнали об Агентстве ADS:\n' \
+           f'<i>Ваш ответ: {sources}</i>\n\n'
+
+    await bot.send_message('1180915885', text, parse_mode='html')  # Отправляем сообщение с запросом в группу
     await call.message.answer('Большое спасибо. В ближайшее время я сообщу Вам информацию по стоимости, '
                               'срокам и возможности реализации проекта.')
     await state.reset_state()
