@@ -1,0 +1,50 @@
+version: '3.1'
+
+services:
+  db:
+    container_name: database
+    image: postgres
+    env_file:
+      - ".env"
+    environment:
+      POSTGRES_USER: ${PG_USER}
+      POSTGRES_PASSWORD: ${PG_PASS}
+      POSTGRES_DB: ${DB_NAME}
+    restart: always
+    ports:
+      - 5432:5432
+    networks:
+      - botnet
+    volumes:
+      - ./pgdata:/var/lib/postgresql
+
+  adminer:
+    container_name: adminer
+    image: adminer
+    restart: always
+    ports:
+      - 8081:8080
+    networks:
+      - botnet
+
+  tgbot:
+    container_name: bot
+    build:
+      context: .
+    command: python app.py
+    networks:
+      - botnet
+    restart: always
+    env_file:
+      - ".env"
+    volumes:
+      - .:/src
+    # bot start after load db
+    depends_on:
+      - db
+
+# указываются используемые сети
+networks:
+  botnet:
+    # указывается драйвер сети
+    driver: bridge
