@@ -186,7 +186,7 @@ time_zoom_markup.add(twelve_btn, twelve_thirty_btn, thirteen_btn, thirteen_thirt
 # Клавиатура для Youtube и TikTok
 youtube_tiktok_keyboard = InlineKeyboardMarkup(row_width=2)
 
-youtube_btn = InlineKeyboardButton(text='Youtube', url='https://www.youtube.com/channel/UC-Uw6fXdmjvKwt4C77RksQQ')
+youtube_btn = InlineKeyboardButton(text='YouTube', url='https://www.youtube.com/channel/UC-Uw6fXdmjvKwt4C77RksQQ')
 tiktok_btn = InlineKeyboardButton(text='TikTok', url='https://vm.tiktok.com/ZSeLWb1SY/')
 on_main_btn = InlineKeyboardButton(text='На главную', callback_data='on_main')
 
