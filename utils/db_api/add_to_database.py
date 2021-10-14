@@ -52,6 +52,13 @@ async def add_reviews():
         thumb_url='https://i.ytimg.com/vi/1EUMBF4g0Qw/maxresdefault.jpg',
         url='https://www.youtube.com/embed/1EUMBF4g0Qw',
         category='review'
+    ),
+    await add_review(
+        name='Отзывы с Facebook',
+        description='Отзывы с Facebook',
+        thumb_url='https://i.ytimg.com/vi/5oxoLMwMYAI/hqdefault.jpg',
+        url='https://m.facebook.com/Adsofficeone/reviews/?ref=bookmarks&mt_nav=0&paipv=1',
+        category='review'
     )
 
 
@@ -442,9 +449,9 @@ async def add_cases():
 
 loop = asyncio.get_event_loop()
 loop.run_until_complete(create_db())
-loop.run_until_complete(add_videos())
-loop.run_until_complete(add_reviews())
-loop.run_until_complete(add_news())
-loop.run_until_complete((add_articles()))
-loop.run_until_complete(add_significant())
-loop.run_until_complete(add_cases())
+# loop.run_until_complete(add_videos())
+# loop.run_until_complete(add_reviews())
+# loop.run_until_complete(add_news())
+# loop.run_until_complete((add_articles()))
+# loop.run_until_complete(add_significant())
+# loop.run_until_complete(add_cases())

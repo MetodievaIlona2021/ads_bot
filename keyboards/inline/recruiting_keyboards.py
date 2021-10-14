@@ -104,6 +104,24 @@ woman_btn = InlineKeyboardButton(text='женский', callback_data='woman')
 gender_types_keyboard.add(man_btn, woman_btn)
 
 
+# Клавиатура для заполнения скрининговой анкеты
+screening_keyboard = InlineKeyboardMarkup(row_width=1)
+
+yes_scr_btn = InlineKeyboardButton(text='Да', callback_data='yes_scr')
+no_scr_btn = InlineKeyboardButton(text='Нет', callback_data='no_scr')
+
+screening_keyboard.add(yes_scr_btn, no_scr_btn)
+
+
+# Клавиатура для вопроса: Все ли важные критерии прописаны в скринере?
+screening_criteria_keyboard = InlineKeyboardMarkup(row_width=1)
+
+yes_criteria_btn = InlineKeyboardButton(text='Да', callback_data='yes_criteria')
+no_criteria_btn = InlineKeyboardButton(text='Нет', callback_data='no_criteria')
+
+screening_criteria_keyboard.add(yes_criteria_btn, no_criteria_btn)
+
+
 # Клавиатура для получения статей
 get_articles_keyboard = InlineKeyboardMarkup(row_width=1)
 
@@ -163,3 +181,13 @@ fifteen_thirty_btn = InlineKeyboardButton(text='15:30', callback_data='fifteen_t
 
 time_zoom_markup.add(twelve_btn, twelve_thirty_btn, thirteen_btn, thirteen_thirty_btn,
                      fourteen_btn, fourteen_thirty_btn, fifteen_btn, fifteen_thirty_btn)
+
+
+# Клавиатура для Youtube и TikTok
+youtube_tiktok_keyboard = InlineKeyboardMarkup(row_width=2)
+
+youtube_btn = InlineKeyboardButton(text='Youtube', url='https://www.youtube.com/channel/UC-Uw6fXdmjvKwt4C77RksQQ')
+tiktok_btn = InlineKeyboardButton(text='TikTok', url='https://vm.tiktok.com/ZSeLWb1SY/')
+on_main_btn = InlineKeyboardButton(text='На главную', callback_data='on_main')
+
+youtube_tiktok_keyboard.add(youtube_btn, tiktok_btn, on_main_btn)

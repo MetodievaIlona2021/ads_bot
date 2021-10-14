@@ -125,18 +125,16 @@ class RecruitQuery(db.Model):
 
     id = Column(Integer, Sequence('recruit_id_seq'), primary_key=True)
     user_id = Column(BigInteger, ForeignKey('users.user_id'), nullable=False)
-    email = Column(String(100))
+    time_stamp = Column(TIMESTAMP)
+    company_info = Column(Text)
     research_type = Column(String(100))
-    basic_requirements = Column(Text)
-    count_respondents = Column(Integer)
-    payments_type = Column(String(500))
+    survey_time = Column(String(100))
+    target_audience = Column(Text)
+    payments_type = Column(String(100))
+    budget = Column(Text)
+    sources = Column(Text)
     respondent_data = Column(Text)
     stock_respondents_info = Column(Text)
-    company_info = Column(Text)
-    name = Column(String(100))
-    gender = Column(String(100))
-    send_articles = Column(String(50))
-    sources = Column(Text)
 
     query: sql.Select
 
