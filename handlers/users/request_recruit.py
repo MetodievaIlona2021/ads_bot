@@ -630,7 +630,7 @@ async def correct_info(call: types.CallbackQuery, state: FSMContext):
            f'насколько это критично для Вас:\n' \
            f'<i>Ваш ответ: {stock_respondents_info}</i>\n\n'
 
-    await bot.send_message('1180915885', text, parse_mode='html')  # Отправляем сообщение с запросом в группу
+    await bot.send_message('1795343099', text, parse_mode='html')  # Отправляем сообщение с запросом в группу
     await call.message.edit_text('Большое спасибо. В ближайшее время я сообщу Вам информацию по стоимости, '
                                  'срокам и возможности реализации проекта.\n\n'
                                  'Можете ознакомиться с нашими Тик Ток Кейсам и Интервью с экспертами на Ютуб канале.',
