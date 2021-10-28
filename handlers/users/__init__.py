@@ -16,4 +16,5 @@ from . import payment_qiwi
 from . import payment_youkassa
 from . import admin_panel
 from . import support
+from . import ads_asks_answers
 # from . import echo

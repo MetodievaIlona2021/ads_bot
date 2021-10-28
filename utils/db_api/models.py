@@ -126,17 +126,36 @@ class RecruitQuery(db.Model):
     id = Column(Integer, Sequence('recruit_id_seq'), primary_key=True)
     user_id = Column(BigInteger, ForeignKey('users.user_id'), nullable=False)
     time_stamp = Column(TIMESTAMP)
-    company_info = Column(Text)
+    email = Column(String(100))
     research_type = Column(String(100))
-    survey_time = Column(String(100))
-    target_audience = Column(Text)
-    payments_type = Column(String(100))
-    budget = Column(Text)
-    sources = Column(Text)
+    basic_requirements = Column(Text)
+    count_respondents = Column(Integer)
+    payments_type = Column(String(500))
     respondent_data = Column(Text)
     stock_respondents_info = Column(Text)
+    company_info = Column(Text)
+    name = Column(String(100))
+    gender = Column(String(100))
+    send_articles = Column(String(50))
+    sources = Column(Text)
 
     query: sql.Select
 
     def __repr__(self):
         return f"<RecruitQuery(id='{self.id}', name='{self.name}')>"
+
+
+# Часто задаваемые вопросы
+class Ask(db.Model):
+    __tablename__ = 'asks'
+
+    id = Column(Integer, Sequence('ask_id_seq'), primary_key=True)
+    name = Column(String(1000))
+    text = Column(Text)
+    thumb_url = Column(String(1000), nullable=True)
+    category = Column(String(50))
+
+    query: sql.Select
+
+    def __repr__(self):
+        return f"<Ask(id='{self.id}', name='{self.name}')>"

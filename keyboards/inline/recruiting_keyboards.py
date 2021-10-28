@@ -17,12 +17,12 @@ online_meeting_btn = InlineKeyboardButton(text=f'Онлайн-встреча', c
 query_recruit_btn = InlineKeyboardButton(text='Запрос на рекрут', callback_data='query_recruit')
 payment_btn = InlineKeyboardButton(text='Оплата услуг', callback_data='payment')
 support_btn = InlineKeyboardButton(text='Написать сообщение', callback_data='support')
-asks_answers_btn = InlineKeyboardButton(text='Часто задаваемые вопросы', callback_data='asks_answers')
+asks_btn = InlineKeyboardButton(text='Часто задаваемые вопросы', switch_inline_query_current_chat='asks')
 
 
 admin_menu_keyboard.add(admin_btn, advantages_btn, services_btn, interview_btn, reviews_btn, news_btn, significant_btn,
                         articles_btn, cases_btn, contacts_btn, online_meeting_btn, query_recruit_btn, payment_btn,
-                        support_btn, asks_answers_btn)
+                        support_btn, asks_btn)
 
 
 # Клавиатура выбора действия для Администратора

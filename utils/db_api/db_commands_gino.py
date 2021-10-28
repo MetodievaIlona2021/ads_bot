@@ -4,7 +4,7 @@ from aiogram import types, Bot
 from asyncpg import Connection
 from sqlalchemy import and_
 
-from utils.db_api.models import User, Video, Review, News, Article, Significant, Case
+from utils.db_api.models import User, Video, Review, News, Article, Significant, Case, Ask
 from utils.db_api.database_gino import db
 
 
@@ -47,6 +47,8 @@ class DBCommands:
             search_items = await Significant.query.where(Significant.category.ilike(f'%{search_query}%')).gino.all()
         elif search_query == 'cases':
             search_items = await Case.query.where(Case.category.ilike(f'%{search_query}%')).gino.all()
+        elif search_query == 'asks':
+            search_items = await Ask.query.where(Ask.category.ilike(f'%{search_query}%')).gino.all()
         else:
             search_items = await Video.query.order_by(Video.name).gino.all()
 
@@ -87,3 +89,8 @@ async def add_significant_item(**kwargs):
 async def add_case(**kwargs):
     new_case = await Case(**kwargs).create()
     return new_case
+
+
+async def add_ask(**kwargs):
+    new_ask = await Ask(**kwargs).create()
+    return new_ask
