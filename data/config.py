@@ -7,6 +7,7 @@ env.read_env()
 BOT_TOKEN = env.str("BOT_TOKEN")  # Забираем значение типа str
 ADMINS = env.list("ADMINS")  # Тут у нас будет список из админов
 IP = env.str("ip")  # Тоже str, но для айпи адреса хоста
+support_ids = env.list("SUPPORT_IDS")  # Тут у нас будет список операторов техподдержки
 
 # Параметры подключения к БД Postgres
 PG_USER = env.str('PG_USER')
