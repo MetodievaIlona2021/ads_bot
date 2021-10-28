@@ -56,9 +56,9 @@ async def support_keyboard(messages, user_id=None):
             contact_id = random.choice(support_ids)
 
         if messages == 'one':
-            text = 'Написать сообщение оператору'
+            text = 'Написать сообщение менеджеру'
         else:
-            text = 'Написать оператору'
+            text = 'Написать менеджеру'
 
     keyboard = InlineKeyboardMarkup()
     keyboard.add(
