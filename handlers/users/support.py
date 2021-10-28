@@ -6,6 +6,14 @@ from keyboards.inline.support_keyboards import support_keyboard, support_callbac
 from loader import dp, bot
 
 
+@dp.callback_query_handler(text='support')
+async def ask_support_call(call: types.CallbackQuery):
+    await call.answer(cache_time=5)
+    text = 'Хотите написать сообщение оператору? Нажмите на кнопку ниже!'
+    keyboard = await support_keyboard(messages='one')
+    await call.message.answer(text=text, reply_markup=keyboard)
+
+
 @dp.message_handler(Command('support'))
 async def ask_support(message: types.Message):
     text = 'Хотите написать сообщение оператору? Нажмите на кнопку ниже!'

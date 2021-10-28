@@ -17,10 +17,15 @@ async def bot_start(message: types.Message, state: FSMContext):
     await bot.send_chat_action(message.from_user.id, action='typing')
     await db.add_new_user()
     user_id = message.from_user.id
+    text = f'Здравствуйте, {message.from_user.full_name}!\n\n' \
+           f'Вас приветствует <b>Первое Агентство по рекрутингу респондентов ADS</b>, ' \
+           f'Лауреат Гильдии маркетологов\n\n' \
+           f'Для формирования запроса на рекрут нажмите кнопку <b>"Запрос на рекрут"</b>\n\n' \
+           f'Если хотите задать вопрос, нажмите на кнопку <b>"Написать сообщение"</b>'
     if str(user_id) in ADMINS:
-        await message.answer(f'Здравствуйте, {message.from_user.full_name}!', reply_markup=admin_menu_keyboard)
+        await message.answer(text=text, reply_markup=admin_menu_keyboard)
     else:
-        await message.answer(f'Здравствуйте, {message.from_user.full_name}!', reply_markup=menu_keyboard)
+        await message.answer(text=text, reply_markup=menu_keyboard)
 
 
 @dp.callback_query_handler(text='on_main', state='*')
