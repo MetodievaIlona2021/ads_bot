@@ -16,7 +16,8 @@ contacts_btn = InlineKeyboardButton(text=f'Контакты', callback_data='con
 online_meeting_btn = InlineKeyboardButton(text=f'Онлайн-встреча', callback_data='online_meeting')
 query_recruit_btn = InlineKeyboardButton(text='Запрос на рекрут', callback_data='query_recruit')
 payment_btn = InlineKeyboardButton(text='Оплата услуг', callback_data='payment')
-support_btn = InlineKeyboardButton(text='Написать сообщение', callback_data='support')
+# support_btn = InlineKeyboardButton(text='Написать сообщение', callback_data='support')
+support_btn = InlineKeyboardButton(text='Написать сообщение', url='https://t.me/IlonaMetodieva')
 asks_btn = InlineKeyboardButton(text='Часто задаваемые вопросы', switch_inline_query_current_chat='asks')
 
 
