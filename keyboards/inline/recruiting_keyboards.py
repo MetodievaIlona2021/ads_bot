@@ -1,4 +1,4 @@
-from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup, ReplyKeyboardMarkup
+from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 # Клавиатура меню для Администратора
 admin_menu_keyboard = InlineKeyboardMarkup(row_width=1)
@@ -18,7 +18,7 @@ query_recruit_btn = InlineKeyboardButton(text='Запрос на рекрут', 
 payment_btn = InlineKeyboardButton(text='Оплата услуг', callback_data='payment')
 # support_btn = InlineKeyboardButton(text='Написать сообщение', callback_data='support')
 support_btn = InlineKeyboardButton(text='Написать сообщение', url='https://t.me/IlonaMetodieva')
-asks_btn = InlineKeyboardButton(text='Часто задаваемые вопросы', switch_inline_qcuery_current_chat='asks')
+asks_btn = InlineKeyboardButton(text='Часто задаваемые вопросы', switch_inline_query_current_chat='asks')
 
 
 admin_menu_keyboard.add(admin_btn, advantages_btn, services_btn, interview_btn, reviews_btn, news_btn, significant_btn,
@@ -42,7 +42,6 @@ admin_action_keyboard.add(add_interview_btn, add_reviews_btn, add_news_btn, add_
 
 # Клавиатура меню
 menu_keyboard = InlineKeyboardMarkup(row_width=1)
-# menu_keyboard = ReplyKeyboardMarkup(row_width=1)
 
 advantages_btn = InlineKeyboardButton(text=f'ADS Преимущества', callback_data='advantages')
 services_btn = InlineKeyboardButton(text=f'Услуги агентства', callback_data='services')
