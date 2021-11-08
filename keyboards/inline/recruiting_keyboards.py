@@ -18,7 +18,7 @@ query_recruit_btn = InlineKeyboardButton(text='Запрос на рекрут', 
 payment_btn = InlineKeyboardButton(text='Оплата услуг', callback_data='payment')
 # support_btn = InlineKeyboardButton(text='Написать сообщение', callback_data='support')
 support_btn = InlineKeyboardButton(text='Написать сообщение', url='https://t.me/IlonaMetodieva')
-asks_btn = InlineKeyboardButton(text='Часто задаваемые вопросы', switch_inline_query_current_chat='asks')
+asks_btn = InlineKeyboardButton(text='Часто задаваемые вопросы', switch_inline_qcuery_current_chat='asks')
 
 
 admin_menu_keyboard.add(admin_btn, advantages_btn, services_btn, interview_btn, reviews_btn, news_btn, significant_btn,
@@ -56,7 +56,8 @@ contacts_btn = InlineKeyboardButton(text=f'Контакты', callback_data='con
 online_meeting_btn = InlineKeyboardButton(text=f'Онлайн-встреча', callback_data='online_meeting')
 query_recruit_btn = InlineKeyboardButton(text='Запрос на рекрут', callback_data='query_recruit')
 payment_btn = InlineKeyboardButton(text='Оплата услуг', callback_data='payment')
-support_btn = InlineKeyboardButton(text='Написать сообщение', callback_data='support')
+# support_btn = InlineKeyboardButton(text='Написать сообщение', callback_data='support')
+support_btn = InlineKeyboardButton(text='Написать сообщение', url='https://t.me/IlonaMetodieva')
 asks_btn = InlineKeyboardButton(text='Часто задаваемые вопросы', switch_inline_query_current_chat='asks')
 
 
